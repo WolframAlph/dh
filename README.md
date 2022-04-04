@@ -6,6 +6,8 @@ using MODP groups as defined in [RFC3526](https://datatracker.ietf.org/doc/html/
 Example:
 
 ```go
+package main
+
 import (
 	"fmt"
 	"reflect"
@@ -31,6 +33,8 @@ can use different group from available (5, 14, 15, 16, 17, 18).
 Example using other group:
 
 ```go
+package main
+
 import (
 	"fmt"
 	"reflect"
@@ -51,6 +55,8 @@ func main() {
 
 Example using different groups:
 ```go
+package main
+
 import (
 	"fmt"
 	"reflect"
