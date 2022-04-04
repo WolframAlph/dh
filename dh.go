@@ -9,28 +9,27 @@ import (
 
 var (
 	defaultGroup = 14
-
-	modp1546pInt = new(big.Int).SetBytes(modp1536pBytes[:])
-	modp2048pInt = new(big.Int).SetBytes(modp2048pBytes[:])
-	modp3072pInt = new(big.Int).SetBytes(modp3072pBytes[:])
-	modp4096pInt = new(big.Int).SetBytes(modp4096pBytes[:])
-	modp6144pInt = new(big.Int).SetBytes(modp6144pBytes[:])
-	modp8192pInt = new(big.Int).SetBytes(modp8192pBytes[:])
-
-	modp1546pKeyLen = len(modp1536pBytes[:])
-	modp2048pKeyLen = len(modp2048pBytes[:])
-	modp3072pKeyLen = len(modp3072pBytes[:])
-	modp4096pKeyLen = len(modp4096pBytes[:])
-	modp6144pKeyLen = len(modp6144pBytes[:])
-	modp8192pKeyLen = len(modp8192pBytes[:])
-
 	g = big.NewInt(2)
+
+	modp1536pInt = new(big.Int).SetBytes(modp1536pBytes)
+	modp2048pInt = new(big.Int).SetBytes(modp2048pBytes)
+	modp3072pInt = new(big.Int).SetBytes(modp3072pBytes)
+	modp4096pInt = new(big.Int).SetBytes(modp4096pBytes)
+	modp6144pInt = new(big.Int).SetBytes(modp6144pBytes)
+	modp8192pInt = new(big.Int).SetBytes(modp8192pBytes)
+
+	modp1536pKeyLen = len(modp1536pBytes)
+	modp2048pKeyLen = len(modp2048pBytes)
+	modp3072pKeyLen = len(modp3072pBytes)
+	modp4096pKeyLen = len(modp4096pBytes)
+	modp6144pKeyLen = len(modp6144pBytes)
+	modp8192pKeyLen = len(modp8192pBytes)
 )
 
 func getGroupParams(id int) (*big.Int, int) {
 	switch id {
 	case 5:
-		return modp1546pInt, modp1546pKeyLen
+		return modp1536pInt, modp1536pKeyLen
 	case 14:
 		return modp2048pInt, modp2048pKeyLen
 	case 15:
