@@ -5,7 +5,7 @@ using MODP groups as defined in [RFC3526](https://datatracker.ietf.org/doc/html/
 
 Example:
 
-```Go
+```go
 import (
 	"fmt"
 	"reflect"
@@ -19,11 +19,51 @@ func main() {
 	aliceSecret := alice.ComputeSecret(bob.PublicKey)
 	bobSecret := bob.ComputeSecret(alice.PublicKey)
 	
-	fmt.Println(reflect.DeepEqual(aliceSecret, bobSecret))
+	fmt.Println(reflect.DeepEqual(aliceSecret, bobSecret)) // true
 }
 ```
 
 ## Notes
 
-1. You must use the same MODP group on both sides, or else you
-   end up with non-matching keys. Group #14 is used by default.
+You must use the same MODP group on both sides, or else you
+end up with non-matching keys. Group #14 is used by default. You
+can use different group from available (5, 14, 15, 16, 17, 18).
+Example using other group:
+
+```go
+import (
+	"fmt"
+	"reflect"
+	"github.com/WolframAlph/dh"
+)
+    
+func main() {
+	modpGroup := 16
+	alice := dh.New(modpGroup)
+	bob := dh.New(modpGroup)
+	
+	aliceSecret := alice.ComputeSecret(bob.PublicKey)
+	bobSecret := bob.ComputeSecret(alice.PublicKey)
+	
+	fmt.Println(reflect.DeepEqual(aliceSecret, bobSecret)) // true
+}
+```
+
+Example using different groups:
+```go
+import (
+	"fmt"
+	"reflect"
+	"github.com/WolframAlph/dh"
+)
+    
+func main() {
+	alice := dh.New(15)
+	bob := dh.New(18)
+	
+	aliceSecret := alice.ComputeSecret(bob.PublicKey)
+	bobSecret := bob.ComputeSecret(alice.PublicKey)
+	
+	fmt.Println(reflect.DeepEqual(aliceSecret, bobSecret)) // false
+}
+```
