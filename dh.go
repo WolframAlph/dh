@@ -9,7 +9,7 @@ import (
 
 var (
 	defaultGroup = 14
-	g = big.NewInt(2)
+	g            = big.NewInt(2)
 
 	modp1536pInt = new(big.Int).SetBytes(modp1536pBytes)
 	modp2048pInt = new(big.Int).SetBytes(modp2048pBytes)

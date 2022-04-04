@@ -81,3 +81,16 @@ func TestModpLengths(t *testing.T) {
 		}
 	}
 }
+
+func TestInvalidGroup(t *testing.T) {
+	defer func() {
+		if i := recover(); i == nil {
+			t.Errorf("Invalid group not causing error")
+		}
+	}()
+
+	New(1)
+	New(9)
+	New(89)
+	New(1004)
+}
