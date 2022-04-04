@@ -1,4 +1,4 @@
-package main
+package dh
 
 // More Modular Exponential (MODP) Diffie-Hellman groups for Internet Key Exchange (IKE)
 // https://datatracker.ietf.org/doc/html/rfc3526
